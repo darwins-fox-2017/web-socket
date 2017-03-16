@@ -26,15 +26,17 @@
              firebase.initializeApp(config);
 
              $( ".jssora22l" ).click(function() {
-               firebase.database().ref('/present/1').set({
-               state: 'left'
-               });
+                 firebase.database().ref('/present/1').set({
+                     state: 'left',
+                     number: Math.random()
+                 });
              });
 
              $( ".jssora22r" ).click(function() {
-               firebase.database().ref('/present/1').set({
-               state: 'right'
-               });
+                 firebase.database().ref('/present/1').set({
+                     state: 'right',
+                     number: Math.random()
+                 });
             });
 
             var jssor_1_options = {
