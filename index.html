@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Presentation</title>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section data-background-image="http://img05.deviantart.net/5480/i/2014/308/5/8/chelsea_islan_by_dennyibnu-d858f18.jpg"></section>
+          <section data-background-image="http://ayobuka.com/wp-content/uploads/2015/01/chelseaislan.jpg" style="color:white;"></section>
+          <section data-background-image="http://pinkkorset.com/wp-content/uploads/2016/02/chelsea-islan-780x520_c.jpg"></section>
+        </section>
+        <section data-background-image="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/USI497193Q.jpg" style="color:white;">Slide 2</section>
+        <section data-background-image="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/IF1XAANXVS.jpg" style="color:white;">Slide 3</section>
+      </div>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+      Reveal.initialize();
+  </script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBPiD9IMagTDzNPf75DQfCjE15_P9hA7RQ",
+      authDomain: "test-9f49f.firebaseapp.com",
+      databaseURL: "https://test-9f49f.firebaseio.com",
+      storageBucket: "test-9f49f.appspot.com",
+      messagingSenderId: "456022955783"
+    };
+    firebase.initializeApp(config);
+
+    var database = firebase.database()
+
+    var controlListener = firebase.database().ref('slide/');
+    controlListener.on('value', function(snapshot) {
+      if (snapshot.val().direction === 'right' && !statusRight) {
+        Reveal.next()
+      } else if (snapshot.val().direction === 'left' && !statusLeft) {
+        Reveal.prev()
+      } else if (snapshot.val().direction === 'up' && !statusUp) {
+        Reveal.up()
+      } else if (snapshot.val().direction === 'down' && !statusDown){
+        Reveal.down()
+      }
+      statusRight = false
+      statusLeft = false
+      statusUp = false
+      statusDown = false
+    });
+
+      var statusRight = false
+      $('.navigate-right').click(function() {
+        statusRight = true
+        data = {
+          direction: 'right',
+          id: Math.random()
+        }
+        firebase.database().ref('slide/').set(data);
+      })
+
+      var statusLeft = false
+      $('.navigate-left').click(function() {
+        statusLeft = true
+        data = {
+          direction: 'left',
+          id: Math.random()
+        }
+        firebase.database().ref('slide/').set(data);
+      })
+
+      var statusUp = false
+      $('.navigate-up').click(function() {
+        statusUp = true
+        data = {
+          direction: 'up',
+          id: Math.random()
+        }
+        firebase.database().ref('slide/').set(data);
+      })
+
+      var statusDown = false
+      $('.navigate-down').click(function() {
+        statusDown = true
+        data = {
+          direction: 'down',
+          id: Math.random()
+        }
+        firebase.database().ref('slide/').set(data);
+      })
+
+  </script>
+</html>
