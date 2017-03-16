@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="public/css/reveal.css">
+    <link rel="stylesheet" href="public/theme/white.css">
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section><img src="http://www.thisisanfield.com/wp-content/uploads/P151226-050-Liverpool_Leicester.jpg"></section>
+        <section><img src="http://kingofwallpapers.com/liverpool/liverpool-014.jpg"></section>
+        <section><img src="http://www.thisisanfield.com/wp-content/uploads/P160505-036-Liverpool_Villarreal.jpg"></section>
+        <!-- <section><img src="https://cdns.klimg.com/bola.net/library/upload/20/2017/03/liverpool_58a053b.jpg"></section> -->
+        <section><img src="http://i4.mirror.co.uk/incoming/article8905647.ece/ALTERNATES/s1227b/Liverpool-v-Hull-City.jpg"></section>
+        <section><img src="http://ak.c.ooyala.com/gzdmF4NTE61Eul5oG2Dc3sB351GlRiXy/promo298328397"></section>
+        <section><img src="http://sundiatapost.com/wp-content/uploads/2015/05/LIVERPOOL-LOGO.jpeg"></section>
+      </div>
+    </div>
+    <script src="public/js/reveal.js"></script>
+    <script>
+      Reveal.initialize();
+    </script>
+  </body>
+
+</html>
+
+
+<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script>
+  // Initialize Firebase
+  $(document).ready(function() {
+    var config = {
+      apiKey: "AIzaSyDw-q7AO0apLuZP_LVxmPHJ6TD0TV8hMzI",
+      authDomain: "eislide-22357.firebaseapp.com",
+      databaseURL: "https://eislide-22357.firebaseio.com",
+      storageBucket: "eislide-22357.appspot.com",
+      messagingSenderId: "67429129404"
+    };
+    firebase.initializeApp(config);
+
+    var starCountRef = firebase.database().ref('chats/1')
+    starCountRef.on('value', function(snapshot) {
+      // updateStarCount(snapshot.val())
+      if (snapshot.val().state == "navigate-right") {
+        $(".navigate-right").click()
+      } else if (snapshot.val().state == "navigate-left") {
+        $(".navigate-left").click()
+      }
+      // console.log(snapshot.val())
+    })
+  })
+</script>

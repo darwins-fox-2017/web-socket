@@ -1,0 +1,27 @@
+{
+  "name": "web-socket",
+  "version": "1.0.0",
+  "description": "Socket with firebase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrEi91/web-socket.git"
+  },
+  "keywords": [
+    "socket",
+    "firebase"
+  ],
+  "author": "Eri Irawan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrEi91/web-socket/issues"
+  },
+  "homepage": "https://github.com/MrEi91/web-socket#readme",
+  "dependencies": {
+    "firebase": "^3.7.2",
+    "live-server": "^1.2.0"
+  }
+}
