@@ -1,3 +1,5 @@
+var firebase = require('firebase');
+
 var config = {
    apiKey: "AIzaSyCts5zvOR1BGUvuAa1TV6jM6LPLT7Yxl0c",
    authDomain: "web-socket-259d0.firebaseapp.com",
@@ -12,7 +14,7 @@ var config = {
    state: 'left'
    });
  });
- 
+
  $( ".jssora22r" ).click(function() {
    firebase.database().ref('/present/1' + userId).set({
    state: 'right'
