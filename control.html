@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Control</title>
+  </head>
+  <body>
+    <button onclick="controlClick('left')">Left</button>
+    <button onclick="controlClick('right')">Right</button>
+  </body>
+  <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+  <script>
+    var config = {
+      apiKey: "AIzaSyBPiD9IMagTDzNPf75DQfCjE15_P9hA7RQ",
+      authDomain: "test-9f49f.firebaseapp.com",
+      databaseURL: "https://test-9f49f.firebaseio.com",
+      storageBucket: "test-9f49f.appspot.com",
+      messagingSenderId: "456022955783"
+    };
+    firebase.initializeApp(config);
+
+    var database = firebase.database()
+
+    function controlClick (direction) {
+      firebase.database().ref('slide/').set({
+        direction: direction,
+        number: Math.random()
+      });
+    }
+
+  </script>
+</html>
