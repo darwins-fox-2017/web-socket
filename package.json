@@ -1,0 +1,23 @@
+{
+  "name": "web-socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isumizumi/web-socket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isumizumi/web-socket/issues"
+  },
+  "homepage": "https://github.com/isumizumi/web-socket#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "firebase": "^3.7.2"
+  }
+}
